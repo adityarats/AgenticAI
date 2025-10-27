@@ -6,13 +6,20 @@ This example shows how to:
 2. Add agents to the workspace
 3. Execute tasks with agents
 4. View workspace status
+
+Note: Run this example from the repository root using:
+    python examples/simple_example.py
+Or install the package first with:
+    pip install -e .
 """
 
 import sys
 import os
 
-# Add src to path for running the example
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))
+# For development: add src to path when running from repository
+# In production, use: pip install -e .
+if __name__ == "__main__":
+    sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))
 
 from agentic_ai import Workspace, Agent, AgentConfig
 
