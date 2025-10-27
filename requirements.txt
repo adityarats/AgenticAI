@@ -1,0 +1,2 @@
+# Core dependencies for Agentic AI Space
+# No external dependencies required for the minimal framework
