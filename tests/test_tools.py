@@ -36,6 +36,18 @@ class TestCalculatorTool(unittest.TestCase):
         self.assertFalse(result["success"])
         self.assertIn("error", result)
     
+    def test_division_by_zero(self):
+        """Test division by zero handling"""
+        result = self.tool.execute("10 / 0")
+        self.assertFalse(result["success"])
+        self.assertIn("Division by zero", result["error"])
+    
+    def test_non_numeric_constant(self):
+        """Test that non-numeric constants are rejected"""
+        result = self.tool.execute("'string'")
+        self.assertFalse(result["success"])
+        self.assertIn("error", result)
+    
     def test_can_handle(self):
         """Test task matching"""
         self.assertTrue(self.tool.can_handle("calculate 2 + 2"))

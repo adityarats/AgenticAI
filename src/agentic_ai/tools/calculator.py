@@ -2,7 +2,7 @@
 Calculator Tool implementation
 """
 
-from typing import Dict, Any
+from typing import Dict, Any, Union
 from agentic_ai.tools.base_tool import BaseTool, ToolConfig
 import ast
 import operator
@@ -29,7 +29,7 @@ class CalculatorTool(BaseTool):
         )
         super().__init__(config)
     
-    def _safe_eval(self, node):
+    def _safe_eval(self, node) -> Union[int, float, complex]:
         """
         Safely evaluate a mathematical expression AST node.
         
@@ -37,9 +37,12 @@ class CalculatorTool(BaseTool):
             node: AST node to evaluate
             
         Returns:
-            Evaluation result
+            Evaluation result (numeric value)
         """
         if isinstance(node, ast.Constant):  # number (Python 3.8+)
+            # Only allow numeric constants
+            if not isinstance(node.value, (int, float, complex)):
+                raise ValueError(f"Only numeric constants are allowed, got {type(node.value)}")
             return node.value
         elif isinstance(node, ast.BinOp):  # binary operation
             op = self.OPERATORS.get(type(node.op))
@@ -47,6 +50,11 @@ class CalculatorTool(BaseTool):
                 raise ValueError(f"Unsupported operator: {type(node.op)}")
             left = self._safe_eval(node.left)
             right = self._safe_eval(node.right)
+            
+            # Check for division by zero
+            if isinstance(node.op, ast.Div) and right == 0:
+                raise ZeroDivisionError("Division by zero is not allowed")
+            
             return op(left, right)
         elif isinstance(node, ast.UnaryOp):  # unary operation
             op = self.OPERATORS.get(type(node.op))
@@ -85,6 +93,11 @@ class CalculatorTool(BaseTool):
             return {
                 "success": False,
                 "error": "Invalid mathematical expression syntax"
+            }
+        except ZeroDivisionError as e:
+            return {
+                "success": False,
+                "error": str(e)
             }
         except ValueError as e:
             return {
