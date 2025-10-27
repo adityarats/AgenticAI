@@ -42,7 +42,7 @@ class CalculatorTool(BaseTool):
         if isinstance(node, ast.Constant):  # number (Python 3.8+)
             # Only allow numeric constants
             if not isinstance(node.value, (int, float, complex)):
-                raise ValueError(f"Only numeric constants are allowed, got {type(node.value)}")
+                raise ValueError(f"Only numeric constants are allowed, got {type(node.value).__name__}")
             return node.value
         elif isinstance(node, ast.BinOp):  # binary operation
             op = self.OPERATORS.get(type(node.op))
@@ -51,8 +51,8 @@ class CalculatorTool(BaseTool):
             left = self._safe_eval(node.left)
             right = self._safe_eval(node.right)
             
-            # Check for division by zero
-            if isinstance(node.op, ast.Div) and right == 0:
+            # Check for division by zero (with small epsilon for floating point)
+            if isinstance(node.op, ast.Div) and abs(right) < 1e-10:
                 raise ZeroDivisionError("Division by zero is not allowed")
             
             return op(left, right)
