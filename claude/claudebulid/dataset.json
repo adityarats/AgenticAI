@@ -1,0 +1,39 @@
+[
+  {
+    "prompt_inputs": {
+      "content": "Recent advances in neuromorphic computing leverage spiking neural networks to model biological neural dynamics with unprecedented efficiency. These systems employ event-driven processing mechanisms inspired by cortical neurons, reducing computational overhead by 90% compared to traditional artificial neural networks. Simultaneously, researchers in cognitive neuroscience have utilized functional magnetic resonance imaging to map the temporal dynamics of attention networks, revealing that prefrontal-parietal connectivity patterns correlate with working memory capacity. Machine learning algorithms trained on these neuroimaging datasets have achieved 87% accuracy in predicting individual differences in cognitive performance, suggesting that computational models of neural circuits can bridge the explanatory gap between neural activity and behavioral outcomes. Furthermore, the integration of reinforcement learning frameworks with neuroscientific principles of dopamine-mediated reward prediction has enabled the development of more robust autonomous systems capable of adaptive decision-making in complex environments."
+    },
+    "solution_criteria": [
+      "Identifies distinct topics across neuroscience, psychology, and computer science domains",
+      "Captures both methodological approaches (fMRI, machine learning, reinforcement learning) and conceptual topics (neural networks, cognitive performance, reward prediction)",
+      "Avoids conflating overlapping concepts while recognizing their interdisciplinary connections"
+    ],
+    "task_description": "\n        \"Extract topics out of a passage of text from a scholarly article into a JSON array of strings.\"\n        ",
+    "scenario": "Testing with a dense interdisciplinary passage containing overlapping topics from multiple fields (e.g., neuroscience, psychology, and computer science) to evaluate whether the prompt can identify distinct topics across domain boundaries"
+  },
+  {
+    "prompt_inputs": {
+      "content": "Rising global temperatures have triggered cascading economic disruptions across agricultural sectors, with crop yield reductions of 15-20% projected by 2050 in major grain-producing regions. These production declines necessitate international policy frameworks to manage food security, while simultaneously creating investment opportunities in drought-resistant crop varieties and precision irrigation technologies. The World Bank estimates climate-related agricultural losses will cost developing nations $5-10 billion annually, prompting governments to establish carbon pricing mechanisms and subsidy reforms. Concurrently, advances in agricultural biotechnology and remote sensing offer pathways for adaptive management, though their deployment depends critically on regulatory harmonization across trade blocs and technology transfer agreements between developed and emerging economies."
+    },
+    "solution_criteria": [
+      "Identifies both explicit topics (agriculture, crop yields, climate change, policy) and implicit topics requiring inference (economics, investment, technology, international trade, regulation)",
+      "Captures the interconnected nature of topics without requiring them to be listed in hierarchical or nested format",
+      "Includes all major conceptual domains discussed, whether stated directly or implied through context"
+    ],
+    "task_description": "\n        \"Extract topics out of a passage of text from a scholarly article into a JSON array of strings.\"\n        ",
+    "scenario": "Testing with a passage containing implicit and subtle topics that require inference beyond explicitly stated keywords, such as a passage discussing climate change impacts that implicitly covers economics, policy, and environmental science"
+  },
+  {
+    "prompt_inputs": {
+      "content": "The photodissociation of diatomic molecules in the A-state exhibits complex nonadiabatic coupling phenomena that fundamentally challenge Born-Oppenheimer approximation validity. Utilizing high-resolution pump-probe spectroscopy with femtosecond laser pulses, we observe conical intersections between the A\u00b9\u03a0 and b\u00b3\u03a0 electronic states, where spin-orbit coupling induces significant branching ratios toward triplet dissociation channels. The wavepacket dynamics reveal oscillatory behavior modulated by vibrational coherence effects, with quantum interference patterns emerging from competing pathways through avoided crossings. Ab initio multiconfigurational calculations employing complete active space self-consistent field (CASSCF) methodology successfully reproduce the experimentally observed lifetimes and product state distributions, validating our treatment of configuration interaction in the interaction region."
+    },
+    "solution_criteria": [
+      "Extracts domain-specific technical topics (e.g., photodissociation, nonadiabatic coupling, conical intersections, spin-orbit coupling) without oversimplifying or misinterpreting specialized terminology",
+      "Identifies experimental and computational methodologies mentioned (pump-probe spectroscopy, CASSCF) as distinct topics",
+      "Produces valid JSON array format with topics as strings",
+      "Avoids including generic words or phrases that are not substantive topics in quantum chemistry context"
+    ],
+    "task_description": "\n        \"Extract topics out of a passage of text from a scholarly article into a JSON array of strings.\"\n        ",
+    "scenario": "Testing with a highly specialized passage from a narrow academic field (e.g., quantum chemistry or literary criticism) using domain-specific jargon to verify the prompt accurately extracts technical topics without over-generalizing or misinterpreting specialized terminology"
+  }
+]

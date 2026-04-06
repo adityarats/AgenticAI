@@ -1,0 +1,243 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Prompt Evaluation Report</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                line-height: 1.6;
+                margin: 0;
+                padding: 20px;
+                color: #333;
+            }
+            .header {
+                background-color: #f0f0f0;
+                padding: 20px;
+                border-radius: 5px;
+                margin-bottom: 20px;
+            }
+            .summary-stats {
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            .stat-box {
+                background-color: #fff;
+                border-radius: 5px;
+                padding: 15px;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+                flex-basis: 30%;
+                min-width: 200px;
+            }
+            .stat-value {
+                font-size: 24px;
+                font-weight: bold;
+                margin-top: 5px;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 20px;
+            }
+            th {
+                background-color: #4a4a4a;
+                color: white;
+                text-align: left;
+                padding: 12px;
+            }
+            td {
+                padding: 10px;
+                border-bottom: 1px solid #ddd;
+                vertical-align: top;
+            }
+            tr:nth-child(even) {
+                background-color: #f9f9f9;
+            }
+            .output-cell {
+                white-space: pre-wrap;
+            }
+            .score {
+                font-weight: bold;
+                padding: 5px 10px;
+                border-radius: 3px;
+                display: inline-block;
+            }
+            .score-high {
+                background-color: #c8e6c9;
+                color: #2e7d32;
+            }
+            .score-medium {
+                background-color: #fff9c4;
+                color: #f57f17;
+            }
+            .score-low {
+                background-color: #ffcdd2;
+                color: #c62828;
+            }
+            .output {
+                overflow: auto;
+                white-space: pre-wrap;
+            }
+
+            .output pre {
+                background-color: #f5f5f5;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                padding: 10px;
+                margin: 0;
+                font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+                font-size: 14px;
+                line-height: 1.4;
+                color: #333;
+                box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+                overflow-x: auto;
+                white-space: pre-wrap; 
+                word-wrap: break-word; 
+            }
+
+            td {
+                width: 20%;
+            }
+            .score-col {
+                width: 80px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Prompt Evaluation Report</h1>
+            <div class="summary-stats">
+                <div class="stat-box">
+                    <div>Total Test Cases</div>
+                    <div class="stat-value">3</div>
+                </div>
+                <div class="stat-box">
+                    <div>Average Score</div>
+                    <div class="stat-value">8.3 / 10</div>
+                </div>
+                <div class="stat-box">
+                    <div>Pass Rate (≥7)</div>
+                    <div class="stat-value">100.0%</div>
+                </div>
+            </div>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Scenario</th>
+                    <th>Prompt Inputs</th>
+                    <th>Solution Criteria</th>
+                    <th>Output</th>
+                    <th>Score</th>
+                    <th>Reasoning</th>
+                </tr>
+            </thead>
+            <tbody>
+    
+            <tr>
+                <td>Testing with a dense interdisciplinary passage containing overlapping topics from multiple fields (e.g., neuroscience, psychology, and computer science) to evaluate whether the prompt can identify distinct topics across domain boundaries</td>
+                <td class="prompt-inputs"><strong>content:</strong> Recent advances in neuromorphic computing leverage spiking neural networks to model biological neural dynamics with unprecedented efficiency. These systems employ event-driven processing mechanisms inspired by cortical neurons, reducing computational overhead by 90% compared to traditional artificial neural networks. Simultaneously, researchers in cognitive neuroscience have utilized functional magnetic resonance imaging to map the temporal dynamics of attention networks, revealing that prefrontal-parietal connectivity patterns correlate with working memory capacity. Machine learning algorithms trained on these neuroimaging datasets have achieved 87% accuracy in predicting individual differences in cognitive performance, suggesting that computational models of neural circuits can bridge the explanatory gap between neural activity and behavioral outcomes. Furthermore, the integration of reinforcement learning frameworks with neuroscientific principles of dopamine-mediated reward prediction has enabled the development of more robust autonomous systems capable of adaptive decision-making in complex environments.</td>
+                <td class="criteria">• Identifies distinct topics across neuroscience, psychology, and computer science domains<br>• Captures both methodological approaches (fMRI, machine learning, reinforcement learning) and conceptual topics (neural networks, cognitive performance, reward prediction)<br>• Avoids conflating overlapping concepts while recognizing their interdisciplinary connections</td>
+                <td class="output"><pre>```json
+[
+  "neuromorphic computing",
+  "spiking neural networks",
+  "biological neural dynamics",
+  "event-driven processing",
+  "cortical neurons",
+  "artificial neural networks",
+  "cognitive neuroscience",
+  "functional magnetic resonance imaging",
+  "attention networks",
+  "prefrontal-parietal connectivity",
+  "working memory capacity",
+  "machine learning algorithms",
+  "neuroimaging datasets",
+  "cognitive performance prediction",
+  "neural circuits",
+  "neural activity",
+  "behavioral outcomes",
+  "reinforcement learning",
+  "dopamine-mediated reward prediction",
+  "autonomous systems",
+  "adaptive decision-making"
+]
+```</pre></td>
+                <td class="score-col"><span class="score score-high">8</span></td>
+                <td class="reasoning">The solution fully satisfies all mandatory requirements: it is a valid JSON array of strings containing topics from the passage, with no extra commentary, and nothing but the JSON array is provided. Regarding secondary criteria, the solution demonstrates strong coverage of interdisciplinary topics and captures both methodological and conceptual elements. However, there is some lack of precision in distinguishing between truly distinct topics versus closely related concepts that could be consolidated. The extraction errs slightly on the side of comprehensiveness rather than focusing on the most salient, distinct topics. Despite these minor issues, the solution effectively meets the stated criteria.</td>
+            </tr>
+        
+            <tr>
+                <td>Testing with a passage containing implicit and subtle topics that require inference beyond explicitly stated keywords, such as a passage discussing climate change impacts that implicitly covers economics, policy, and environmental science</td>
+                <td class="prompt-inputs"><strong>content:</strong> Rising global temperatures have triggered cascading economic disruptions across agricultural sectors, with crop yield reductions of 15-20% projected by 2050 in major grain-producing regions. These production declines necessitate international policy frameworks to manage food security, while simultaneously creating investment opportunities in drought-resistant crop varieties and precision irrigation technologies. The World Bank estimates climate-related agricultural losses will cost developing nations $5-10 billion annually, prompting governments to establish carbon pricing mechanisms and subsidy reforms. Concurrently, advances in agricultural biotechnology and remote sensing offer pathways for adaptive management, though their deployment depends critically on regulatory harmonization across trade blocs and technology transfer agreements between developed and emerging economies.</td>
+                <td class="criteria">• Identifies both explicit topics (agriculture, crop yields, climate change, policy) and implicit topics requiring inference (economics, investment, technology, international trade, regulation)<br>• Captures the interconnected nature of topics without requiring them to be listed in hierarchical or nested format<br>• Includes all major conceptual domains discussed, whether stated directly or implied through context</td>
+                <td class="output"><pre>```json
+[
+  "global temperature rise",
+  "agricultural economic disruptions",
+  "crop yield reduction",
+  "grain production",
+  "food security",
+  "drought-resistant crops",
+  "precision irrigation technologies",
+  "climate-related agricultural losses",
+  "developing nations",
+  "carbon pricing mechanisms",
+  "subsidy reforms",
+  "agricultural biotechnology",
+  "remote sensing",
+  "adaptive management",
+  "regulatory harmonization",
+  "trade blocs",
+  "technology transfer agreements",
+  "developed economies",
+  "emerging economies"
+]
+```</pre></td>
+                <td class="score-col"><span class="score score-high">9</span></td>
+                <td class="reasoning">The solution fully satisfies all mandatory requirements: it is a valid JSON array containing only topic strings with no extra commentary. Regarding secondary criteria, it successfully identifies both explicit topics (global temperature rise, agricultural disruptions, crop yields, food security, carbon pricing) and implicit topics requiring inference (economics through 'agricultural economic disruptions', investment through context, technology transfer, regulatory harmonization). The extraction captures the interconnected nature of the domains without forcing hierarchical structure. The 19 topics comprehensively cover all major conceptual domains discussed in the passage. The only minor gaps are the explicit mention of 'investment opportunities' and 'policy frameworks' as standalone topics, though these concepts are adequately represented through related extractions.</td>
+            </tr>
+        
+            <tr>
+                <td>Testing with a highly specialized passage from a narrow academic field (e.g., quantum chemistry or literary criticism) using domain-specific jargon to verify the prompt accurately extracts technical topics without over-generalizing or misinterpreting specialized terminology</td>
+                <td class="prompt-inputs"><strong>content:</strong> The photodissociation of diatomic molecules in the A-state exhibits complex nonadiabatic coupling phenomena that fundamentally challenge Born-Oppenheimer approximation validity. Utilizing high-resolution pump-probe spectroscopy with femtosecond laser pulses, we observe conical intersections between the A¹Π and b³Π electronic states, where spin-orbit coupling induces significant branching ratios toward triplet dissociation channels. The wavepacket dynamics reveal oscillatory behavior modulated by vibrational coherence effects, with quantum interference patterns emerging from competing pathways through avoided crossings. Ab initio multiconfigurational calculations employing complete active space self-consistent field (CASSCF) methodology successfully reproduce the experimentally observed lifetimes and product state distributions, validating our treatment of configuration interaction in the interaction region.</td>
+                <td class="criteria">• Extracts domain-specific technical topics (e.g., photodissociation, nonadiabatic coupling, conical intersections, spin-orbit coupling) without oversimplifying or misinterpreting specialized terminology<br>• Identifies experimental and computational methodologies mentioned (pump-probe spectroscopy, CASSCF) as distinct topics<br>• Produces valid JSON array format with topics as strings<br>• Avoids including generic words or phrases that are not substantive topics in quantum chemistry context</td>
+                <td class="output"><pre>```json
+[
+  "photodissociation",
+  "diatomic molecules",
+  "A-state",
+  "nonadiabatic coupling",
+  "Born-Oppenheimer approximation",
+  "pump-probe spectroscopy",
+  "femtosecond laser pulses",
+  "conical intersections",
+  "A¹Π electronic state",
+  "b³Π electronic state",
+  "spin-orbit coupling",
+  "triplet dissociation channels",
+  "wavepacket dynamics",
+  "vibrational coherence",
+  "quantum interference",
+  "avoided crossings",
+  "CASSCF",
+  "complete active space self-consistent field",
+  "ab initio multiconfigurational calculations",
+  "configuration interaction",
+  "product state distributions"
+]
+```</pre></td>
+                <td class="score-col"><span class="score score-high">8</span></td>
+                <td class="reasoning">The solution meets all mandatory requirements: it contains a valid JSON array of strings with topics only (no extra commentary), and the response contains only the JSON array. It successfully extracts domain-specific technical terminology without oversimplification and identifies methodologies as distinct topics. The secondary criteria are largely met with strong coverage of quantum chemistry concepts. However, there is a notable deficiency: the inclusion of both 'CASSCF' and its full expansion 'complete active space self-consistent field' violates the principle of avoiding redundancy in topic extraction. A scholarly article topic extraction should list each distinct topic once. This is a meaningful but not critical flaw that prevents a perfect score.</td>
+            </tr>
+        
+            </tbody>
+        </table>
+    </body>
+    </html>
+    

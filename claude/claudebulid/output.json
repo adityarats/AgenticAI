@@ -1,0 +1,54 @@
+[
+  {
+    "output": "```json\n[\n  \"neuromorphic computing\",\n  \"spiking neural networks\",\n  \"biological neural dynamics\",\n  \"event-driven processing\",\n  \"cortical neurons\",\n  \"artificial neural networks\",\n  \"cognitive neuroscience\",\n  \"functional magnetic resonance imaging\",\n  \"attention networks\",\n  \"prefrontal-parietal connectivity\",\n  \"working memory capacity\",\n  \"machine learning algorithms\",\n  \"neuroimaging datasets\",\n  \"cognitive performance prediction\",\n  \"neural circuits\",\n  \"neural activity\",\n  \"behavioral outcomes\",\n  \"reinforcement learning\",\n  \"dopamine-mediated reward prediction\",\n  \"autonomous systems\",\n  \"adaptive decision-making\"\n]\n```",
+    "test_case": {
+      "prompt_inputs": {
+        "content": "Recent advances in neuromorphic computing leverage spiking neural networks to model biological neural dynamics with unprecedented efficiency. These systems employ event-driven processing mechanisms inspired by cortical neurons, reducing computational overhead by 90% compared to traditional artificial neural networks. Simultaneously, researchers in cognitive neuroscience have utilized functional magnetic resonance imaging to map the temporal dynamics of attention networks, revealing that prefrontal-parietal connectivity patterns correlate with working memory capacity. Machine learning algorithms trained on these neuroimaging datasets have achieved 87% accuracy in predicting individual differences in cognitive performance, suggesting that computational models of neural circuits can bridge the explanatory gap between neural activity and behavioral outcomes. Furthermore, the integration of reinforcement learning frameworks with neuroscientific principles of dopamine-mediated reward prediction has enabled the development of more robust autonomous systems capable of adaptive decision-making in complex environments."
+      },
+      "solution_criteria": [
+        "Identifies distinct topics across neuroscience, psychology, and computer science domains",
+        "Captures both methodological approaches (fMRI, machine learning, reinforcement learning) and conceptual topics (neural networks, cognitive performance, reward prediction)",
+        "Avoids conflating overlapping concepts while recognizing their interdisciplinary connections"
+      ],
+      "task_description": "\n        \"Extract topics out of a passage of text from a scholarly article into a JSON array of strings.\"\n        ",
+      "scenario": "Testing with a dense interdisciplinary passage containing overlapping topics from multiple fields (e.g., neuroscience, psychology, and computer science) to evaluate whether the prompt can identify distinct topics across domain boundaries"
+    },
+    "score": 8,
+    "reasoning": "The solution fully satisfies all mandatory requirements: it is a valid JSON array of strings containing topics from the passage, with no extra commentary, and nothing but the JSON array is provided. Regarding secondary criteria, the solution demonstrates strong coverage of interdisciplinary topics and captures both methodological and conceptual elements. However, there is some lack of precision in distinguishing between truly distinct topics versus closely related concepts that could be consolidated. The extraction errs slightly on the side of comprehensiveness rather than focusing on the most salient, distinct topics. Despite these minor issues, the solution effectively meets the stated criteria."
+  },
+  {
+    "output": "```json\n[\n  \"global temperature rise\",\n  \"agricultural economic disruptions\",\n  \"crop yield reduction\",\n  \"grain production\",\n  \"food security\",\n  \"drought-resistant crops\",\n  \"precision irrigation technologies\",\n  \"climate-related agricultural losses\",\n  \"developing nations\",\n  \"carbon pricing mechanisms\",\n  \"subsidy reforms\",\n  \"agricultural biotechnology\",\n  \"remote sensing\",\n  \"adaptive management\",\n  \"regulatory harmonization\",\n  \"trade blocs\",\n  \"technology transfer agreements\",\n  \"developed economies\",\n  \"emerging economies\"\n]\n```",
+    "test_case": {
+      "prompt_inputs": {
+        "content": "Rising global temperatures have triggered cascading economic disruptions across agricultural sectors, with crop yield reductions of 15-20% projected by 2050 in major grain-producing regions. These production declines necessitate international policy frameworks to manage food security, while simultaneously creating investment opportunities in drought-resistant crop varieties and precision irrigation technologies. The World Bank estimates climate-related agricultural losses will cost developing nations $5-10 billion annually, prompting governments to establish carbon pricing mechanisms and subsidy reforms. Concurrently, advances in agricultural biotechnology and remote sensing offer pathways for adaptive management, though their deployment depends critically on regulatory harmonization across trade blocs and technology transfer agreements between developed and emerging economies."
+      },
+      "solution_criteria": [
+        "Identifies both explicit topics (agriculture, crop yields, climate change, policy) and implicit topics requiring inference (economics, investment, technology, international trade, regulation)",
+        "Captures the interconnected nature of topics without requiring them to be listed in hierarchical or nested format",
+        "Includes all major conceptual domains discussed, whether stated directly or implied through context"
+      ],
+      "task_description": "\n        \"Extract topics out of a passage of text from a scholarly article into a JSON array of strings.\"\n        ",
+      "scenario": "Testing with a passage containing implicit and subtle topics that require inference beyond explicitly stated keywords, such as a passage discussing climate change impacts that implicitly covers economics, policy, and environmental science"
+    },
+    "score": 9,
+    "reasoning": "The solution fully satisfies all mandatory requirements: it is a valid JSON array containing only topic strings with no extra commentary. Regarding secondary criteria, it successfully identifies both explicit topics (global temperature rise, agricultural disruptions, crop yields, food security, carbon pricing) and implicit topics requiring inference (economics through 'agricultural economic disruptions', investment through context, technology transfer, regulatory harmonization). The extraction captures the interconnected nature of the domains without forcing hierarchical structure. The 19 topics comprehensively cover all major conceptual domains discussed in the passage. The only minor gaps are the explicit mention of 'investment opportunities' and 'policy frameworks' as standalone topics, though these concepts are adequately represented through related extractions."
+  },
+  {
+    "output": "```json\n[\n  \"photodissociation\",\n  \"diatomic molecules\",\n  \"A-state\",\n  \"nonadiabatic coupling\",\n  \"Born-Oppenheimer approximation\",\n  \"pump-probe spectroscopy\",\n  \"femtosecond laser pulses\",\n  \"conical intersections\",\n  \"A\u00b9\u03a0 electronic state\",\n  \"b\u00b3\u03a0 electronic state\",\n  \"spin-orbit coupling\",\n  \"triplet dissociation channels\",\n  \"wavepacket dynamics\",\n  \"vibrational coherence\",\n  \"quantum interference\",\n  \"avoided crossings\",\n  \"CASSCF\",\n  \"complete active space self-consistent field\",\n  \"ab initio multiconfigurational calculations\",\n  \"configuration interaction\",\n  \"product state distributions\"\n]\n```",
+    "test_case": {
+      "prompt_inputs": {
+        "content": "The photodissociation of diatomic molecules in the A-state exhibits complex nonadiabatic coupling phenomena that fundamentally challenge Born-Oppenheimer approximation validity. Utilizing high-resolution pump-probe spectroscopy with femtosecond laser pulses, we observe conical intersections between the A\u00b9\u03a0 and b\u00b3\u03a0 electronic states, where spin-orbit coupling induces significant branching ratios toward triplet dissociation channels. The wavepacket dynamics reveal oscillatory behavior modulated by vibrational coherence effects, with quantum interference patterns emerging from competing pathways through avoided crossings. Ab initio multiconfigurational calculations employing complete active space self-consistent field (CASSCF) methodology successfully reproduce the experimentally observed lifetimes and product state distributions, validating our treatment of configuration interaction in the interaction region."
+      },
+      "solution_criteria": [
+        "Extracts domain-specific technical topics (e.g., photodissociation, nonadiabatic coupling, conical intersections, spin-orbit coupling) without oversimplifying or misinterpreting specialized terminology",
+        "Identifies experimental and computational methodologies mentioned (pump-probe spectroscopy, CASSCF) as distinct topics",
+        "Produces valid JSON array format with topics as strings",
+        "Avoids including generic words or phrases that are not substantive topics in quantum chemistry context"
+      ],
+      "task_description": "\n        \"Extract topics out of a passage of text from a scholarly article into a JSON array of strings.\"\n        ",
+      "scenario": "Testing with a highly specialized passage from a narrow academic field (e.g., quantum chemistry or literary criticism) using domain-specific jargon to verify the prompt accurately extracts technical topics without over-generalizing or misinterpreting specialized terminology"
+    },
+    "score": 8,
+    "reasoning": "The solution meets all mandatory requirements: it contains a valid JSON array of strings with topics only (no extra commentary), and the response contains only the JSON array. It successfully extracts domain-specific technical terminology without oversimplification and identifies methodologies as distinct topics. The secondary criteria are largely met with strong coverage of quantum chemistry concepts. However, there is a notable deficiency: the inclusion of both 'CASSCF' and its full expansion 'complete active space self-consistent field' violates the principle of avoiding redundancy in topic extraction. A scholarly article topic extraction should list each distinct topic once. This is a meaningful but not critical flaw that prevents a perfect score."
+  }
+]
